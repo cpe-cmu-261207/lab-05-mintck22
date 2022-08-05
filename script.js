@@ -54,14 +54,11 @@ function addTodo(title, completed) {
     count++;
     completed = count % 2;
     span.style.textDecoration = completed ? "line-through" : "";
-    localStorage.setItem("line", (span.style.textDecoration = "line-through"));
+    saveTodo();
   };
   deleteBtn.onclick = () => {
-    // localStorage.list = li;
-    const lst = JSON.stringify(li);
-    localStorage.setItem("list", lst);
     todoCtn.removeChild(li);
-    localStorage.removeItem("list");
+    saveTodo();
   };
   li.onmouseover = () => {
     doneBtn.style.display = "";
